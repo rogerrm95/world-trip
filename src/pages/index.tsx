@@ -11,6 +11,7 @@ import { RichText } from 'prismic-dom'
 import { Header } from "../components/Header";
 import { IconTravel } from "../components/IconTravel";
 import { Slider } from "../components/Slider";
+import { Footer } from "../components/Footer";
 
 
 interface HomeProps {
@@ -77,6 +78,7 @@ export default function Home({ photos }: HomeProps) {
 
         <Slider photos={photos} />
 
+        <Footer />
       </Flex>
     </>
   )
