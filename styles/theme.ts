@@ -18,6 +18,9 @@ const theme = extendTheme({
             "200": "#B3B5C6",
             "100": "#D1D2DC",
             "50": "#F5F8FA",
+        },
+        yellow: {
+            "500": "#FFBA08"
         }
     },
     styles: {
