@@ -37,6 +37,7 @@ export default function Home({ photos }: HomeProps) {
         <Header />
 
         <Stack
+          position='relative'
           backgroundImage={'/background.png'}
           width='100%'
           height='275px'
@@ -53,13 +54,13 @@ export default function Home({ photos }: HomeProps) {
             Chegou a hora de tirar do papel a viagem que você <br />sempre sonhou.
           </Text>
 
-          {/*           <Image
+          <Image
             src='/airplane.svg'
             alt='Avião'
             position='absolute'
             right='16'
             bottom='-10'
-            width='400px' /> */}
+            width='400px' />
         </Stack>
 
         <HStack justify='space-between' mt='20' spacing='16'>
