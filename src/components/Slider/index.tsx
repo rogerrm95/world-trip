@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import Link from 'next/link'
 import { Box, Flex, Image, Stack, Text } from "@chakra-ui/react";
 
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -25,6 +26,7 @@ type Photo = {
 
 
 export function Slider({ photos }: SliderProps) {
+
     return (
         <Flex width='100%' maxWidth='1200px' height='450px' my='14'>
             <Swiper pagination navigation speed={500} style={{ borderRadius: '2px' }}>
@@ -37,7 +39,7 @@ export function Slider({ photos }: SliderProps) {
                                 justifyContent: 'center',
                             }}>
 
-                            <Image src={photo.url} alt={photo.alt} objectFit='cover' width={1300}/>
+                            <Image src={photo.url} alt={photo.alt} objectFit='cover' width={1300} />
 
                             <Box
                                 position='absolute'
@@ -49,9 +51,12 @@ export function Slider({ photos }: SliderProps) {
                                 width='100%'
                                 height='100%'>
 
-                                <Text color='gray.50' fontSize='4xl' fontWeight='bold'>
-                                    {photo.continent}
-                                </Text>
+                                <Link href={`continent/${photo.alt}`} passHref>
+                                    <Text color='gray.50' fontSize='4xl' fontWeight='bold' as='a'>
+                                        {photo.continent}
+                                    </Text>
+                                </Link>
+
                                 <Text
                                     color='gray.50' fontSize='2xl'>
                                     {photo.description}

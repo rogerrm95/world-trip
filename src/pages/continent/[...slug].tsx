@@ -1,4 +1,5 @@
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 import { Box, Flex, Image, SimpleGrid, Stack, Text } from "@chakra-ui/react";
 import { getPrismicClient } from "../../services/prismic";
 import { RichText } from "prismic-dom";
@@ -22,19 +23,33 @@ interface CitiesData {
 export default function ContinentPage({ data }: CitiesData) {
 
     return (
-        <Flex align='center' justify='center' direction='column' width='100%' p='0'>
-            <Header />
+        <>
+            <Head>
+                <title>{`${data.name} | World-Trip`}</title>
+            </Head>
 
-            <Continent data={data} />
+            <Flex align='center' justify='center' direction='column' width='100%' p='0'>
+                <Header />
 
-            <Footer />
-        </Flex>
+                <Continent data={data} />
+
+                <Footer />
+            </Flex>
+        </>
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, params }) => {
+export const getStaticPaths = () => {
+    return {
+        paths: [],
+        fallback: 'blocking'
+    }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     const { slug } = params
+    console.log(slug)
     const uidInPrismic = `continent-${String(slug)}`
     console.log(uidInPrismic)
     const response = await getPrismicClient().getByUID('continents', uidInPrismic, {}).then(res => res)
@@ -61,12 +76,10 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
         }))
     }
 
-    console.log(data.description)
-
-
     return {
         props: {
             data
-        }
+        },
+        revalidate: 60 * 60 * 4 // 4 horas
     }
 }
