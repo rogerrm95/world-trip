@@ -49,9 +49,7 @@ export const getStaticPaths = () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     const { slug } = params
-    console.log(slug)
     const uidInPrismic = `continent-${String(slug)}`
-    console.log(uidInPrismic)
     const response = await getPrismicClient().getByUID('continents', uidInPrismic, {}).then(res => res)
 
     if (!response) {

@@ -71,7 +71,7 @@ export default function Home({ photos }: HomeProps) {
           <IconTravel label='E mais...' src='/earth.svg' alt='e mais...' />
         </HStack>
 
-        <Divider maxWidth='90px' mt='20' borderColor='gray.600' />
+        <Divider maxWidth='90px' mt='20' borderColor='gray.600' border='2px'/>
 
         <Box mt='14' textAlign='center' fontSize='4xl'>
           <Text>Vamos nessa?<br />Então escolha seu continente</Text>

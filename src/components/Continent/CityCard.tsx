@@ -9,14 +9,18 @@ interface CityCardProps {
 }
 
 export function CityCard({ url, city, country, zipCodeOfFlag }: CityCardProps) {
+
+    const limitToWrap = city.length
+
     return (
         <Box
             width='256px'
             height='279px'
             borderRadius={10}
-            bg='blackAlpha.50'
+            bg='white'
             flexDirection='column'>
-            <Image src={url} alt='Londres' width={300} borderTopRadius={10} />
+
+            <Image src={url} alt={city} width={300} height='173px' borderTopRadius={10} />
 
             <Flex
                 height='106px'
@@ -29,9 +33,23 @@ export function CityCard({ url, city, country, zipCodeOfFlag }: CityCardProps) {
                 pl='6'
                 pt='4'>
 
-                <Text fontSize='xl' fontWeight='semibold'>{city}</Text>
+                { // Quebra de linha //
+                    limitToWrap >= 12
+                        ? (
+                            <>
+                                <Text fontSize='lg' fontWeight='semibold' maxWidth='70%'lineHeight='1.25' >{city}</Text>
 
-                <Text color='gray.300' mt='3'>{country}</Text>
+                                <Text color='gray.300' mt='2'>{country}</Text>
+                            </>
+                        )
+                        : (
+                            <>
+                                <Text fontSize='xl' fontWeight='semibold'>{city}</Text>
+
+                                <Text color='gray.300' mt='3'>{country}</Text>
+                            </>
+                        )
+                }
 
                 <CircleFlag
                     countryCode={zipCodeOfFlag.toLowerCase()}
