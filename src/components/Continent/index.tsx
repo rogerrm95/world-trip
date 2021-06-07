@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 
 // Componentes //
 import { Banner } from "./Banner";
@@ -17,7 +17,7 @@ interface ContinentPageProps {
 
 export function Continent({ data }: ContinentPageProps) {
     return (
-        <>
+        <Flex direction='column' align='center' width='100%'>
             <Banner name={data.name} alt={data.alt} url={data.url} />
 
             <Box width='100%' maxWidth='900px' mt='5rem'>
@@ -25,6 +25,6 @@ export function Continent({ data }: ContinentPageProps) {
 
                 <Cities cities={data.cities} label='cidades 100+' />
             </Box>
-        </>
+        </Flex>
     )
 }

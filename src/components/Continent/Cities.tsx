@@ -1,4 +1,4 @@
-import { SimpleGrid, Text } from "@chakra-ui/react"
+import { Box, SimpleGrid, Text } from "@chakra-ui/react"
 import { CityCard } from "./CityCard"
 
 interface CitiesProps {
@@ -16,15 +16,16 @@ type City = {
 export function Cities({ cities, label }: CitiesProps) {
     return (
 
-        <>
+        <Box>
             <Text as='h2' fontSize='4xl' fontWeight='medium' mt='20'>
                 {label}
             </Text>
 
             <SimpleGrid my='10' spacing={4} align='flex-start' columns={3}>
                 {
-                    cities.map(item => (
+                    cities.map((item, index: number) => (
                         <CityCard
+                            key={index}
                             city={item.city}
                             url={item.url}
                             country={item.country}
@@ -33,6 +34,6 @@ export function Cities({ cities, label }: CitiesProps) {
                     ))
                 }
             </SimpleGrid>
-        </>
+        </Box>
     )
 }

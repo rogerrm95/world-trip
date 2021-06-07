@@ -4,20 +4,24 @@ interface BannerProps {
     name: string,
     url: string,
     alt?: string,
-    width?: number,
-    height?: number,
 }
 
 export function Banner({
     name,
     url,
     alt = '',
-    width = 1300,
-    height = 600
 }: BannerProps) {
     return (
         <Box width='100%' position='relative'>
-            <Image src={url} alt={alt} objectFit='cover' width={width} height={height} />
+            <Image
+                src={url}
+                alt={alt}
+                objectFit='cover'
+                maxWidth={1440}
+                width='100%'
+                height={600}
+            />
+
             <Box
                 position='absolute'
                 width='100%'

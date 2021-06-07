@@ -39,7 +39,12 @@ export function Slider({ photos }: SliderProps) {
                                 justifyContent: 'center',
                             }}>
 
-                            <Image src={photo.url} alt={photo.alt} objectFit='cover' width={1300} />
+                            <Image
+                                src={photo.url}
+                                alt={photo.alt}
+                                objectFit='cover'
+                                width={{ base: 800, md: 1024, lg: 1440 }}
+                                height='inherit' />
 
                             <Box
                                 position='absolute'
@@ -47,18 +52,24 @@ export function Slider({ photos }: SliderProps) {
                                 flexDirection='column'
                                 align='center'
                                 justifyContent='center'
-                                backgroundColor='#00000076'
+                                backgroundColor='#00000088'
                                 width='100%'
                                 height='100%'>
 
                                 <Link href={`continent/${photo.alt}`} passHref>
-                                    <Text color='gray.50' fontSize='4xl' fontWeight='bold' as='a'>
+                                    <Text 
+                                        color='gray.50'
+                                        fontSize='4xl'
+                                        fontWeight='bold'
+                                        as='a'>
                                         {photo.continent}
                                     </Text>
                                 </Link>
 
                                 <Text
-                                    color='gray.50' fontSize='2xl'>
+                                    color='gray.50'
+                                    fontWeight='bold'
+                                    fontSize={{lg: '2xl', md: 'xl', base: 'lg'}}>
                                     {photo.description}
                                 </Text>
                             </Box>

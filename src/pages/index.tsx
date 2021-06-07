@@ -12,6 +12,7 @@ import { Header } from "../components/Header";
 import { IconTravel } from "../components/IconTravel";
 import { Slider } from "../components/Slider";
 import { Footer } from "../components/Footer";
+import { BannerHome } from "../components/BannerHome";
 
 
 interface HomeProps {
@@ -26,6 +27,7 @@ type Photo = {
 }
 
 export default function Home({ photos }: HomeProps) {
+
   return (
     <>
       <Head>
@@ -36,34 +38,13 @@ export default function Home({ photos }: HomeProps) {
 
         <Header />
 
-        <Stack
-          position='relative'
-          backgroundImage={'/background.png'}
-          width='100%'
-          height='275px'
-          px='20'
-          py='16'
-          spacing='5'
-          color='gray.50'>
+        <BannerHome />
 
-          <Text fontWeight='medium' fontSize='36'>
-            5 Continentes,<br />infinitas possibilidades.
-          </Text>
-
-          <Text fontSize='18' fontWeight='normal'>
-            Chegou a hora de tirar do papel a viagem que você <br />sempre sonhou.
-          </Text>
-
-          <Image
-            src='/airplane.svg'
-            alt='Avião'
-            position='absolute'
-            right='16'
-            bottom='-10'
-            width='400px' />
-        </Stack>
-
-        <HStack justify='space-between' mt='20' spacing='16'>
+        <HStack 
+          justify='center'
+          mt={{ lg: '20', md: '9', sm: '9' }}
+          spacing={{lg: '16', md: '12', sm: '4'}}
+          flexWrap='wrap'>
           <IconTravel label='Vida noturna' src='/cocktail.svg' alt='vida noturna' />
           <IconTravel label='Praia' src='/beach.svg' alt='praia' />
           <IconTravel label='Moderno' src='/building.svg' alt='moderno' />
@@ -71,9 +52,9 @@ export default function Home({ photos }: HomeProps) {
           <IconTravel label='E mais...' src='/earth.svg' alt='e mais...' />
         </HStack>
 
-        <Divider maxWidth='90px' mt='20' borderColor='gray.600' border='2px'/>
+        <Divider maxWidth='90px' mt='20' borderColor='gray.600' border={{ lg: '2px', sm: '1px' }} />
 
-        <Box mt='14' textAlign='center' fontSize='4xl'>
+        <Box mt='14' textAlign='center' fontSize={{ lg: '4xl', md: '2xl', sm: 'xl' }}>
           <Text>Vamos nessa?<br />Então escolha seu continente</Text>
         </Box>
 
