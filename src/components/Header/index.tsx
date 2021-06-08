@@ -12,7 +12,7 @@ export function Header() {
     return (
         <Grid
             templateColumns={isHome ? '1fr' : '25px 1fr'}
-            width='inherit'
+            width='100%'
             p='4'
             alignItems='center'
             justifyContent='center'>

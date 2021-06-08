@@ -1,4 +1,5 @@
-import { Box, SimpleGrid, Text } from "@chakra-ui/react"
+import { Box, extendTheme, SimpleGrid, Text, useBreakpointValue } from "@chakra-ui/react"
+import { createBreakpoints } from "@chakra-ui/theme-tools"
 import { CityCard } from "./CityCard"
 
 interface CitiesProps {
@@ -14,14 +15,27 @@ type City = {
 }
 
 export function Cities({ cities, label }: CitiesProps) {
+
+    const isWideVersion = useBreakpointValue({
+        xl: false,
+        ls: false,
+        md: true,
+        sm: true
+    })
+
     return (
 
-        <Box>
-            <Text as='h2' fontSize='4xl' fontWeight='medium' mt='20'>
+        <Box mt={[9, 10, 20]}>
+            <Text as='h2' fontSize='4xl' fontWeight='medium'>
                 {label}
             </Text>
 
-            <SimpleGrid my='10' spacing={4} align='flex-start' columns={3}>
+            <SimpleGrid
+                my='10'
+                spacingY='6'
+                alignItems='center'
+                justifyContent='center'
+                columns={[1, 1, 2, 3]}>
                 {
                     cities.map((item, index: number) => (
                         <CityCard

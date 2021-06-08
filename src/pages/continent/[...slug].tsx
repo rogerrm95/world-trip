@@ -28,7 +28,8 @@ export default function ContinentPage({ data }: CitiesData) {
                 <title>{`${data.name} | World-Trip`}</title>
             </Head>
 
-            <Flex align='center' justify='center' direction='column' width='100%' p='0'>
+            <Flex align='center' justify='center' direction='column' width='100%' p='0'
+            boxSizing='border-box'>
                 <Header />
 
                 <Continent data={data} />

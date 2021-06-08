@@ -20,7 +20,7 @@ export function Continent({ data }: ContinentPageProps) {
         <Flex direction='column' align='center' width='100%'>
             <Banner name={data.name} alt={data.alt} url={data.url} />
 
-            <Box width='100%' maxWidth='900px' mt='5rem'>
+            <Box width='100%' mt='5rem' px={['4', '6', '20']}>
                 <ContinentInfo description={data.description} />
 
                 <Cities cities={data.cities} label='cidades 100+' />

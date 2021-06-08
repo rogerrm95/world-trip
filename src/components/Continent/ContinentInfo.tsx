@@ -1,4 +1,4 @@
-import { Box, Icon, Flex, SimpleGrid, Stack, Text, Tooltip } from "@chakra-ui/react";
+import { Box, Icon, Flex, SimpleGrid, Stack, Text, Tooltip, useBreakpointValue } from "@chakra-ui/react";
 import { RiInformationLine } from 'react-icons/ri'
 
 interface ContinentInfoProps {
@@ -6,11 +6,22 @@ interface ContinentInfoProps {
 }
 
 export function ContinentInfo({ description }: ContinentInfoProps) {
+    const isWideVersion = useBreakpointValue({
+        lg: false,
+        md: true,
+        sm: true
+    })
+
     return (
-        <SimpleGrid columns={2}>
+        <SimpleGrid columns={isWideVersion ? 1 : 2}>
             <Flex textAlign='justify' lineHeight='9' dangerouslySetInnerHTML={{ __html: description }} />
 
-            <Stack spacing='10' align='center' justify='center' direction='row'>
+            <Stack 
+                spacing='10'
+                align='center'
+                justify='center'
+                direction='row'
+                mt={isWideVersion && '2'}>
                 <Box>
                     <Text textAlign='center' fontSize='5xl' color='yellow.500'>50</Text>
                     <Text fontWeight='bold'> países </Text>
@@ -25,7 +36,7 @@ export function ContinentInfo({ description }: ContinentInfoProps) {
                         cidades 100+
                         <Tooltip label='Cidades mais turísticas do mundo' bg="gray.300" color="black" hasArrow>
                             <Box as='span' ml='2'>
-                                <Icon as={RiInformationLine} boxSize='20px'/>
+                                <Icon as={RiInformationLine} boxSize='20px' />
                             </Box>
                         </Tooltip>
                     </Text>

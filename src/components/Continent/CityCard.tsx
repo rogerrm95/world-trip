@@ -18,6 +18,7 @@ export function CityCard({ url, city, country, zipCodeOfFlag }: CityCardProps) {
             height='279px'
             borderRadius={10}
             bg='white'
+            justifySelf='center'
             flexDirection='column'>
 
             <Image src={url} alt={city} width={300} height='173px' borderTopRadius={10} />
