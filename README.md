@@ -8,7 +8,7 @@ World Trip é uma aplicação web onde possibilita o usuário a descobrir os des
 
 Para a construção desta aplicação foi utilizado além do React e NetxJS, o Chakra UI para a criação da interface (interface declarativa) e o Prismic CMS para consumir os conteúdos da aplicação.
 
-<p align='right'>Bootcamp Ignite - 2021 | Rockeatseat 🚀</p>
+<p align='right'>Bootcamp Ignite - 2021 | Rocketseat 🚀</p>
 
 ## Tecnologias 💻
 
